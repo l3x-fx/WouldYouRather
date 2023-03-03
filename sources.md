@@ -1,0 +1,1 @@
+Avatar Placeholder: https://pixabay.com/de/vectors/benutzerbild-symbol-platzhalter-1606939/

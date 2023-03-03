@@ -1,39 +1,116 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Great+Vibes&display=swap');
+
+:root {
+  --pale-accent: #E8D8C5;
+  --accent: #582336;
+  --grey: #BABABA;
+  --darkgrey: #4F4F4F;
+  --white: #FFF;
+  --accent-font: 'Great Vibes', cursive;
+  --basic-font: 'Lato', sans-serif;
+}
+
+* {
+  padding: 0px; 
+  Margin: 0px;
+  box-sizing: border-box;
   text-align: center;
+  font-family: var(--basic-font);
+}
+/* ------------------------------------------------- */
+/* GLOBAL STYLES */
+
+.title {
+  margin: 50px auto;
+  font-size: 2em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ava {
+  background-color: var(--darkgrey);
+  height: 65px;
+  width: 65px;
+  margin: 10px; 
+  border-radius: 40px;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+  z-index: 5;  
+}
+.ava > img {
+  width: 100%;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+.btn {
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 5px 20px;
+  border-radius: 8px;
 }
 
-.App-header {
-  min-height: 100vh;
+/* ------------------------------------------------- */
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  font-family: var(--accent-font);
+  background-color: var(--pale-accent);
+  font-size: 55px;
+}
+
+/* ------------------------------------------------- */
+/* NAVBAR */
+.navbar {
+  display:flex; 
+  flex-direction: row;
+  align-items: center;
+  height: 30px; 
+  min-height: 25px;
+  font-size: 1.2em;
+  padding: 5px 20px;
+  background-color: #582336;
+  color: var(--white)
+}
+.nav, .nav-name, .ava, .nav-log{
+  display: inline;
+  color: var(--white);
+  text-decoration:none;
+}
+.nav, .nav-log, input{
+  margin: 10px 25px;
+}
+.nav-name {
+  margin:10px 10px 10px auto;
+}
+
+/* ------------------------------------------------- */
+/* AUTHFORMS */
+.authform {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+/* ------------------------------------------------- */
+/* NEW POLL */
+.opt-input{
+  margin: 15px;
+  resize: none;
 }
+/* ------------------------------------------------- */
+/* LEADERBOARD */
+.leaderbaord {
+  display:inline-grid;
+  margin-top: 60px;
+  align-items: center;  
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  grid-gap: 15px; 
+  grid-template-columns: 80px 2fr 1fr 1fr;
+  width:60vw;
+}
+.username {text-align: left;}
+.LBtitle{
+  font-size: 1.2em;
+  font-weight: 600;
 }

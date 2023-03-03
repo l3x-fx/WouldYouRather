@@ -1,0 +1,63 @@
+.polllist{
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items:flex-start;
+  }
+  .cardbox {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 30vw;
+    flex: 0 1 20em;
+  }
+  .cardinfo {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--grey);
+    border-bottom: 1px solid black;
+    margin: 0px;
+    font-size:0.9em;
+  }
+  
+  .cardname {
+    margin: 0px auto 0px 5px;
+    font-weight:600;
+  }
+  
+  .carddate {
+    margin: 0px 5px 0px auto;
+  }
+  
+  .card-quest {
+    display:grid;
+    grid-template-columns: 20px 1fr;
+    grid-template-areas: 
+     "x q "
+     "checkA optA "
+     "checkB optB ";
+     justify-items: start;
+     align-items: start;
+     padding:5px 25px 5px 5px;
+  }
+  
+  .quest{grid-area:q; font-weight: 600;}
+  .checkA{grid-area: checkA; font-weight: 600;}
+  .optA{grid-area: optA;}
+  .checkB{grid-area:checkB; font-weight: 600;}
+  .optB{grid-area: optB; }
+  .Q{text-align: left; margin:5px;}
+  
+  
+  .btn-card {
+    background-color: var(--accent);
+    color: var(--white);
+    border:0px;
+    padding: 5px 20px;
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+  }

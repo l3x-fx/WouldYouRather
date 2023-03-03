@@ -1,13 +1,14 @@
+import { Link } from 'react-router-dom'
 import dummy from '../icons/ava-dummy.png'
 export const Navbar = () => {
     return(
         <div className="navbar" >
-            <div className="nav" style={{display: "inline"}}>Home </div>
-            <div className="nav" style={{display: "inline"}}>Leaderboard </div>
-            <div className="nav" style={{display: "inline"}}>New </div>
-            <div className="nav-name" style={{display: "inline"}}>John Doe </div>
-            <div className="ava" style={{display: "inline"}}>AVA </div>
-            <div className="nav-log" style={{display: "inline"}}>Logout </div>
+            <Link to="/" className="nav">Home </Link>
+            <Link to="/leaderboard" className="nav">Leaderboard </Link>
+            <Link to="/new" className="nav">New </Link>
+            <div className="nav-name">John Doe </div>
+            <div className="ava"><img src={dummy} alt='avatar dummy' /> </div>
+            <Link to ="" className="nav-log">Logout </Link>
         </div>
     )
 }

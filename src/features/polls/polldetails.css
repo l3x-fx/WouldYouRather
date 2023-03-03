@@ -1,0 +1,81 @@
+
+.quest-detail {
+    display:inline-grid;
+    margin-top: 60px;
+    align-items: start; 
+    justify-content: space-around;
+    grid-gap: 15px; 
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+    "x    title     title     y"
+    "checkA optA      optB    checkB"
+    "z      statsA      statsB    w" 
+    "z      btnoptA  btnoptB  w"
+    "z   back      back    w";
+  
+    width: 60vw;
+  }
+  
+  .quest-title{grid-area: title;}
+  
+  .DcheckA{grid-area: checkA; text-align:right;}
+  .DoptA{grid-area: optA;}
+  .DoptB{grid-area: optB;}
+  .DcheckB{grid-area: checkB; text-align: left;}
+  
+  .statsA{grid-area: statsA;}
+  .statsB{grid-area: statsB;}
+  
+  .btnoptA{grid-area: btnoptA;}
+  .btnoptB{grid-area: btnoptB;}
+  .btnback{grid-area: back;}
+  
+  .qava{display:inline-block;}
+  
+  
+  .DoptA, .DoptB{
+    height: 7em;
+    width:100%;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  
+  .btnoptA, .btnoptB, .btnback{margin: 20px;}
+  .quest-detail-title{margin:30px 0px 10px 0px;}
+  
+  .check {font-size: 3em;}
+  
+  .resultbarA, .resultbarB {
+    display: grid;
+    grid-template-columns: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  
+  .resultbarA{justify-items: right;}
+  .resultbarB{justify-items: left;}
+  
+  .resultA {
+    background-color: var(--pale-accent);
+    padding: 0px 5px;
+    width: 70%;
+    text-align: right;  
+  }
+  .resultB{
+    background-color: var(--pale-accent);
+    padding: 0px 5px;
+    width: 30%;
+    text-align: left;
+  }
+  
+  .votesA{
+    padding: 0px 5px;
+    text-align: right;
+    font-size:0.8em;
+  }
+  
+  .votesB{
+    padding: 0px 5px;
+    text-align: left;
+    font-size:0.8em;
+  }
