@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import {getAllPolls, selectPolls } from './pollsSlice';
-import{ getAllUsers, selectUsers } from '../users/usersSlice'
- import { selectAuth } from '../auth/authSlice';
+import{ getAllUsers } from '../users/usersSlice'
+ import { selectAuth, selectLoggedIn } from '../auth/authSlice';
 
 import { PollCard } from './PollCard'
 import './polls.css'
@@ -13,6 +13,7 @@ export const PollList = () => {
     const navigate = useNavigate();
     const polls = useSelector(selectPolls);
     const authUser = useSelector(selectAuth);
+    const isLoggedIn = useSelector(selectLoggedIn);
     const dispatch = useDispatch();
 
     const [answered, setAnswered] = useState(false);
@@ -23,17 +24,18 @@ export const PollList = () => {
     // arrayofobjects.sort(function (x,y){
     //        return x.key - y.key
     // })
-    const displayPolls = (selectedPolls) => { 
-        return selectedPolls.map(poll => <PollCard id={poll} pollId={poll} answered={answered} />)        
+    const displayPolls = (selectedPolls) => {
+        const sortedPolls = selectedPolls.sort((x,y)=>  x - y)
+        return sortedPolls.map(poll => <PollCard id={poll} pollId={poll} answered={answered} />)        
     }
 
     useEffect(()=> {
-        if (authUser === '') {        
-            navigate("/login")
+        if(!isLoggedIn) {
+            navigate('/login')
         } else {
-        dispatch(getAllUsers());
-        dispatch(getAllPolls());
-        setAuthAnswerIds(Object.keys(authUser.answers))
+            dispatch(getAllUsers());
+            dispatch(getAllPolls());
+            setAuthAnswerIds(Object.keys(authUser.answers))
         }
     },[])
     
@@ -47,7 +49,6 @@ export const PollList = () => {
                     : displayPolls(polls.filter(poll => !authAnswerIds.includes(poll.id)).map(poll => poll.id))
                 } 
             </div> 
-        </div>
-        
+        </div> 
     )
 }

@@ -1,9 +1,10 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, redirect } from 'react-router-dom';
 
 import './App.css';
 import { Header } from './app/Header';
 import { Navbar } from './app/Navbar';
+
 
 
 function App() {
