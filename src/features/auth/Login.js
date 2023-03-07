@@ -33,7 +33,7 @@ export const Login = () => {
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();
-        const foundUser = users.find(user => user.name === loginName);
+        const foundUser = Object.values(users).find(user => user.name === loginName);
         if (foundUser.password === loginPW) { 
             dispatch(login(foundUser))
             navigate('/')

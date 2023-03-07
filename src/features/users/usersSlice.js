@@ -3,7 +3,7 @@ import { _getUsers } from '../../backend-mock/_DATA';
 
 
 const initialState = {
-  value: [],
+  value: '',
   status: 'idle',
 };
 
@@ -11,8 +11,7 @@ export const getAllUsers = createAsyncThunk(
   'users/getAllUsers',
   async () => {
     const response = await _getUsers();
-    const responseArray = Object.values(response);
-    return responseArray;
+    return response;
   }
 );
 

@@ -3,7 +3,7 @@ import  {  _getQuestions, _saveQuestion, _saveQuestionAnswer } from '../../backe
 
 
 const initialState = {
-    value: [],
+    value: '',
     status: 'idle',
   };
 
@@ -11,8 +11,7 @@ const initialState = {
     'polls/getAllPolls',
     async () => {
       const response = await _getQuestions();
-      const responseArray = Object.values(response);
-      return responseArray;
+      return response;
     }
   );
 
