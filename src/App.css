@@ -5,6 +5,7 @@
   --accent: #582336;
   --grey: #BABABA;
   --darkgrey: #4F4F4F;
+  --lightgrey:  #d8d8d8;
   --white: #FFF;
   --accent-font: 'Great Vibes', cursive;
   --basic-font: 'Lato', sans-serif;
@@ -46,6 +47,11 @@
   border-radius: 8px;
 }
 
+.failmessage {
+  color: red; 
+  font-weight: 400;
+}
+
 /* ------------------------------------------------- */
 /* HEADER */
 .header {
@@ -66,8 +72,8 @@
   align-items: center;
   height: 30px; 
   min-height: 25px;
-  font-size: 1.2em;
-  padding: 5px 20px;
+  font-size: 1.1em;
+  padding: 5px 15px;
   background-color: #582336;
   color: var(--white)
 }
@@ -76,11 +82,16 @@
   color: var(--white);
   text-decoration:none;
 }
-.nav, .nav-log, input{
-  margin: 10px 25px;
+.nav, input{
+  margin: 10px 15px;
+}
+
+.nav-log { margin: 5px ;}
+.nav-log:hover { 
+  cursor: pointer;
 }
 .nav-name {
-  margin:10px 10px 10px auto;
+  margin:5px 5px 5px auto;
 }
 
 /* ------------------------------------------------- */
