@@ -6,13 +6,13 @@ import{ selectUsers } from '../users/usersSlice'
 import {selectAuth} from '../auth/authSlice'
 
 export const PollCard = ({poll, answered}) => {
-    const navigate = useNavigate;
+    const navigate = useNavigate();
     
     const users = useSelector(selectUsers);
     const authUser = useSelector(selectAuth);
 
     const handleClick = () => {
-        navigate(`/questions/:${poll.id}`)
+        navigate(`questions/${poll.id}`)
     }
     
     return(
