@@ -11,23 +11,28 @@ import './polls.css'
 
 export const PollList = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const polls = useSelector(selectPolls);
     const authUser = useSelector(selectAuth);
-    const isLoggedIn = useSelector(selectLoggedIn);
-    const dispatch = useDispatch();
+    const isLoggedIn = useSelector(selectLoggedIn);   
 
     const [answered, setAnswered] = useState(false);
     const [authAnswerIds, setAuthAnswerIds] = useState([]);
+
     const toggleAnswered = ()=> {
         answered ? setAnswered(false) : setAnswered(true)
     }
-    // arrayofobjects.sort(function (x,y){
-    //        return x.key - y.key
-    // })
+
     const displayPolls = (selectedPolls) => {
-        const sortedPolls = selectedPolls.sort((x,y)=>  x - y)
-        return sortedPolls.map(poll => <PollCard id={poll} pollId={poll} answered={answered} />)        
+        return selectedPolls.map(poll => <PollCard key={poll.id} poll={poll} answered={answered} />)        
     }
+    const answeredPolls = Object.values(polls)
+                            .filter(poll =>  authAnswerIds.includes(poll.id))
+                            .sort((x,y) => y.timestamp - x.timestamp)
+    const openPolls = Object.values(polls)
+                            .filter(poll => !authAnswerIds.includes(poll.id))
+                            .sort((x,y) => y.timestamp - x.timestamp)
 
     useEffect(()=> {
         if(!isLoggedIn) {
@@ -37,7 +42,7 @@ export const PollList = () => {
             dispatch(getAllPolls());
             setAuthAnswerIds(Object.keys(authUser.answers))
         }
-    },[])
+    },[isLoggedIn, authUser.answers, navigate, dispatch])
     
     return(
         <div >
@@ -45,8 +50,8 @@ export const PollList = () => {
             answered <input type="checkbox" id="answered" name="answered" onClick={toggleAnswered} /> open
             <div className="polllist">                
                 {answered  
-                    ? displayPolls(authAnswerIds)
-                    : displayPolls(polls.filter(poll => !authAnswerIds.includes(poll.id)).map(poll => poll.id))
+                    ? displayPolls(answeredPolls)
+                    : displayPolls(openPolls)
                 } 
             </div> 
         </div> 
