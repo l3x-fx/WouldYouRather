@@ -1,12 +1,10 @@
 import { useNavigate, useParams } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 
-import { selectAuth, selectLoggedIn, saveAnswerToAuth } from '../auth/authSlice';
+import { selectAuth, selectLoggedIn } from '../auth/authSlice';
 import { selectUsers } from '../users/usersSlice';
 import { getAllPolls, selectPolls, savePollAnswer } from './pollsSlice';
-import { getAllUsers } from '../users/usersSlice'
 
 import { Error } from '../../app/Error';
 import dummy from '../../icons/ava-dummy.png';
@@ -18,7 +16,7 @@ export const PollDetails = () => {
 
     const polls = useSelector(selectPolls);
     const users = useSelector(selectUsers);
-    const authUser = useSelector(selectAuth);
+    const authUser = useSelector(selectAuth); 
     const isLoggedIn = useSelector(selectLoggedIn);  
 
     const [answered, setAnswered] = useState(false);
@@ -31,7 +29,6 @@ export const PollDetails = () => {
     const countTwo = poll.optionTwo.votes.length;
 
     const percentageOne = () => {
-
         if (countOne+countTwo !== 0){ 
             return (countOne*100)/(countOne + countTwo)
         } else {return 0}
@@ -55,7 +52,6 @@ export const PollDetails = () => {
     const handleVote = (e) => {
         e.preventDefault(); 
         dispatch(savePollAnswer({authedUser:authUser.id, qid:question_id, answer:e.target.name}))
-        dispatch(saveAnswerToAuth({[question_id]: e.target.name}))
         navigate('/');
     }
 
@@ -63,7 +59,6 @@ export const PollDetails = () => {
         if(!isLoggedIn) {
             navigate('/login')
         } else {
-            dispatch(getAllUsers());
             dispatch(getAllPolls());  
             checkAnswered(question_id);
         }
@@ -74,7 +69,7 @@ export const PollDetails = () => {
         <div className="blah">
         <div className="quest-detail">
             <div className="quest-title">
-                <div className="ava qava"><img src={dummy} alt='avatar dummy' /></div>
+                <div className="ava qava"><img src={users[poll.author].avatarURL || dummy } alt='avatar dummy' /></div>
                 <div className="quest-name">{users[poll.author].name} asks:</div>
                 <h2 className="quest-detail-title">Would you rather ... </h2>
             </div>
@@ -83,18 +78,18 @@ export const PollDetails = () => {
                 className="check DcheckA" 
                 style={{
                     display: answered ? 'block':'none', 
-                    color: answered && authUser.answers[poll.id] === 'optionOne' ? '#07aa07' : '#cc0606'
+                    color: answered && poll.optionOne.votes.includes(authUser.id)  ? '#07aa07' : '#cc0606' 
                     }}
-            >{answered && authUser.answers[poll.id] === 'optionOne' ? '✓' : '✗'}</div> 
+            >{answered && poll.optionOne.votes.includes(authUser.id)  ? '✓' : '✗'}</div>  
             <div className="det DoptA">... {poll.optionOne.text} </div> 
             <div className="det DoptB">... {poll.optionTwo.text}</div> 
             <div 
                 className="check DcheckB" 
                 style={{
                     display: answered ? 'block':'none', 
-                    color: answered && authUser.answers[poll.id] === 'optionTwo' ? '#07aa07' : '#cc0606'
+                    color: answered && poll.optionTwo.votes.includes(authUser.id) ? '#07aa07' : '#cc0606' 
                 }}
-            >{answered && authUser.answers[poll.id] === 'optionTwo' ? '✓' : '✗'} </div>
+            >{answered && poll.optionTwo.votes.includes(authUser.id) ? '✓' : '✗'} </div>  
         {/* ------------------------------ */}
             <div className="statsA" style={{display: answered ? 'block':'none'}}>
                 <div className="resultbarA">

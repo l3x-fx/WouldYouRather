@@ -9,7 +9,7 @@ export const PollCard = ({poll, answered}) => {
     const navigate = useNavigate();
     
     const users = useSelector(selectUsers);
-    const authUser = useSelector(selectAuth);
+    const authUser = useSelector(selectAuth); //  <<<<<<<<<<<<<<<<<<-------------------
 
     const handleClick = () => {
         navigate(`questions/${poll.id}`)
@@ -27,9 +27,9 @@ export const PollCard = ({poll, answered}) => {
                     className="Q checkA" 
                     style={{
                         display: answered ? 'block':'none',
-                        color: answered && authUser.answers[poll.id] === 'optionOne' ? '#07aa07' : '#cc0606'
+                        color: answered && authUser.answers[poll.id] === 'optionOne' ? '#07aa07' : '#cc0606' //  <<<<<<<<<<<<<<<<<<-------------------
                         }}>
-                        {answered && authUser.answers[poll.id] === 'optionOne' ? '✓' : '✗'} 
+                        {answered && authUser.answers[poll.id] === 'optionOne' ? '✓' : '✗'}  {/* //  <<<<<<<<<<<<<<<<<<------------------- */}
                 </div>                
                 <div className="Q optA">{poll.optionOne.text}</div>
                 
@@ -37,9 +37,9 @@ export const PollCard = ({poll, answered}) => {
                     className="Q checkB" 
                     style={{
                         display: answered ? 'block':'none',
-                        color: answered && authUser.answers[poll.id] === 'optionTwo' ? '#07aa07' : '#cc0606'
+                        color: answered && authUser.answers[poll.id] === 'optionTwo' ? '#07aa07' : '#cc0606' //  <<<<<<<<<<<<<<<<<<-------------------
                         }}> 
-                        {answered && authUser.answers[poll.id] === 'optionTwo' ? '✓' : '✗'} 
+                        {answered && authUser.answers[poll.id] === 'optionTwo' ? '✓' : '✗'} {/* //  <<<<<<<<<<<<<<<<<<------------------- */}
                 </div>
                 <div className="Q optB">{poll.optionTwo.text} </div> 
                             </div>

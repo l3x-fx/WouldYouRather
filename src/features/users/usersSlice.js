@@ -19,7 +19,9 @@ export const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
-  },
+    saveNewPollToUser: (state, action) => {
+      state.value[action.payload.author].questions.push(action.payload.id);     
+  }},
 
   extraReducers: (builder) => {
     builder
@@ -33,7 +35,7 @@ export const usersSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount } = usersSlice.actions;
+export const { increment, decrement, incrementByAmount, saveNewPollToUser } = usersSlice.actions;
 
 export const selectUsers = (state) => state.users.value;
 

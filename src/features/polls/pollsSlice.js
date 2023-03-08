@@ -22,6 +22,14 @@ const initialState = {
     }
   )
 
+  export const saveNewPoll = createAsyncThunk(
+    'polls/saveNewPoll', 
+    async (newPoll) => {
+      const response = await _saveQuestion(newPoll); 
+      return response;
+    }
+  )
+
   export const pollsSlice = createSlice({
     name: 'polls',
     initialState,
@@ -42,7 +50,15 @@ const initialState = {
       })
       .addCase(savePollAnswer.fulfilled, (state, action) => {
         state.status = 'idle';     
-      });
+      })
+      
+      .addCase(saveNewPoll.pending, (state) => {
+        state.satue = 'loading';
+      })
+      .addCase(saveNewPoll.fulfilled, (state) => {
+        state.satue = 'idle';
+      })
+      
     }
   });
   

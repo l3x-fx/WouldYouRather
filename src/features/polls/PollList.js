@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import {getAllPolls, selectPolls } from './pollsSlice';
-import{ getAllUsers, selectUsers } from '../users/usersSlice'
- import { selectAuth, selectLoggedIn } from '../auth/authSlice';
+import { selectAuth, selectLoggedIn } from '../auth/authSlice';
 
 import { PollCard } from './PollCard'
 import './polls.css'
@@ -14,12 +13,10 @@ export const PollList = () => {
     const dispatch = useDispatch();
 
     const polls = useSelector(selectPolls);
-    const users = useSelector(selectUsers);
     const authUser = useSelector(selectAuth);
     const isLoggedIn = useSelector(selectLoggedIn);   
 
     const [answered, setAnswered] = useState(false);
-    const [authAnswerIds, setAuthAnswerIds] = useState([]);
 
     const toggleAnswered = ()=> {
         answered ? setAnswered(false) : setAnswered(true)
@@ -29,26 +26,26 @@ export const PollList = () => {
         return selectedPolls.map(poll => <PollCard key={poll.id} poll={poll} answered={answered} />)        
     }
     const answeredPolls = Object.values(polls)
-                            .filter(poll =>  authAnswerIds.includes(poll.id))
+                            .filter(poll =>  poll.optionOne.votes.includes(authUser.id) || poll.optionTwo.votes.includes(authUser.id) )   //  <<<<<<<<<<<<<<<<<<-------------------
                             .sort((x,y) => y.timestamp - x.timestamp)
+    console.log('answered polls.....' + JSON.stringify(answeredPolls))
     const openPolls = Object.values(polls)
-                            .filter(poll => !authAnswerIds.includes(poll.id))
+                            .filter(poll => !answeredPolls.includes(poll))   
                             .sort((x,y) => y.timestamp - x.timestamp)
+    console.log('answered polls.....' + JSON.stringify(openPolls))
 
     useEffect(()=> {
         if(!isLoggedIn) {
             navigate('/login')
         } else {
-            dispatch(getAllUsers());   
-            dispatch(getAllPolls());            
+            dispatch(getAllPolls());   
         }
-        setAuthAnswerIds(Object.keys(authUser.answers));
-    },[isLoggedIn, authUser.answers, navigate, dispatch])
+    },[isLoggedIn, navigate, dispatch])   
     
     return(
         <div >
             <h2 className="title">List of Polls</h2>
-            answered <input type="checkbox" id="answered" name="answered" onClick={toggleAnswered} /> open
+            answered <input type="checkbox" id="answered" name="answered" onClick={toggleAnswered} /> unanswered
             <div className="polllist">                
                 {answered  
                     ? displayPolls(answeredPolls)

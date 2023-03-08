@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         element: <Signup />
       },      
       {
-        path:"/new",
+        path:"/add",
         element:<NewPoll />, 
       },
       {
