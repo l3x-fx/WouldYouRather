@@ -5,7 +5,7 @@
     align-items: start; 
     justify-content: space-around;
     grid-gap: 15px; 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 4fr 4fr 1fr;
     grid-template-areas: 
     "x    title     title     y"
     "checkA optA      optB    checkB"
@@ -16,11 +16,11 @@
     width: 60vw;
   }
   
-  .quest-title{grid-area: title;}
+  .quest-title{grid-area: title; }
   
-  .DcheckA{grid-area: checkA; text-align:right;}
-  .DoptA{grid-area: optA;}
-  .DoptB{grid-area: optB;}
+  .DcheckA{grid-area: checkA; text-align:right}
+  .DoptA{grid-area: optA; padding: 3px;}
+  .DoptB{grid-area: optB; padding: 3px;}
   .DcheckB{grid-area: checkB; text-align: left;}
   
   .statsA{grid-area: statsA;}
@@ -52,30 +52,24 @@
     border-radius: 5px;
   }
   
-  .resultbarA{justify-items: right;}
-  .resultbarB{justify-items: left;}
+  .resultbarA{justify-items: left;    font-size:0.8em;}
+  .resultbarB{justify-items: left;    font-size:0.8em;}
   
   .resultA {
     background-color: var(--pale-accent);
-    padding: 0px 5px;
-    width: 70%;
-    text-align: right;  
+    text-align: left;  
   }
   .resultB{
     background-color: var(--pale-accent);
-    padding: 0px 5px;
-    width: 30%;
     text-align: left;
   }
   
   .votesA{
     padding: 0px 5px;
-    text-align: right;
-    font-size:0.8em;
+    text-align: left;
   }
   
   .votesB{
     padding: 0px 5px;
     text-align: left;
-    font-size:0.8em;
   }

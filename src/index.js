@@ -1,4 +1,5 @@
 import React from 'react';
+// import { Connect } from 'react-redux';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
       {
         path: "/questions/:question_id", 
         element: <PollDetails />,
-        errorElement: <Error />
+        // errorElement: <Error />
       }
       
 

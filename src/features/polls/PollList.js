@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import {getAllPolls, selectPolls } from './pollsSlice';
-import{ getAllUsers } from '../users/usersSlice'
+import{ getAllUsers, selectUsers } from '../users/usersSlice'
  import { selectAuth, selectLoggedIn } from '../auth/authSlice';
 
 import { PollCard } from './PollCard'
@@ -14,6 +14,7 @@ export const PollList = () => {
     const dispatch = useDispatch();
 
     const polls = useSelector(selectPolls);
+    const users = useSelector(selectUsers);
     const authUser = useSelector(selectAuth);
     const isLoggedIn = useSelector(selectLoggedIn);   
 
@@ -38,10 +39,10 @@ export const PollList = () => {
         if(!isLoggedIn) {
             navigate('/login')
         } else {
-            dispatch(getAllUsers());
-            dispatch(getAllPolls());
-            setAuthAnswerIds(Object.keys(authUser.answers))
+            dispatch(getAllUsers());   
+            dispatch(getAllPolls());            
         }
+        setAuthAnswerIds(Object.keys(authUser.answers));
     },[isLoggedIn, authUser.answers, navigate, dispatch])
     
     return(

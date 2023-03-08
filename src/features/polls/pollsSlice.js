@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import  {  _getQuestions, _saveQuestion, _saveQuestionAnswer } from '../../backend-mock/_DATA';
 
-
 const initialState = {
     value: '',
     status: 'idle',
@@ -14,6 +13,14 @@ const initialState = {
       return response;
     }
   );
+
+  export const savePollAnswer = createAsyncThunk(
+    'polls/savePollAnswer', 
+    async ({authedUser, qid, answer}) => {
+      const response = await _saveQuestionAnswer({authedUser, qid, answer}); 
+      return response;
+    }
+  )
 
   export const pollsSlice = createSlice({
     name: 'polls',
@@ -28,8 +35,15 @@ const initialState = {
         .addCase(getAllPolls.fulfilled, (state, action) => {
           state.status = 'idle';
           state.value = action.payload;
-        });
-    },
+        })
+
+      .addCase(savePollAnswer.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(savePollAnswer.fulfilled, (state, action) => {
+        state.status = 'idle';     
+      });
+    }
   });
   
   // export const { } = pollsSlice.actions;
