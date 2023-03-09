@@ -14,7 +14,7 @@ export const Navbar = () => {
             <Link to="/leaderboard" className="nav">Leaderboard </Link>
             <Link to="/add" className="nav">New </Link>
             <div className="nav-name">{authUser !== '' &&  authUser.name} </div>
-            <div className="ava"><img src={authUser === '' ? dummy : authUser.avatarURL} alt='avatar picture' /> </div>
+            <div className="ava"><img src={authUser.avatarURL || dummy} alt='avatar' /> </div>
             {authUser === ''
                 ? <Link to ="/login" className="nav-log" >Login</Link>   
                 : <Link to ="/login" className="nav-log" onClick={()=> dispatch(logout())}>Logout </Link>                

@@ -33,10 +33,12 @@ export const Login = () => {
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();
-        const foundUser = Object.values(users).find(user => user.name === loginName);
-        if (foundUser.password === loginPW) { 
-            dispatch(login(foundUser))
-            navigate('/')
+        if (Object.values(users).some(user => user.name === loginName)) {
+            const foundUser = Object.values(users).find(user => user.name === loginName);
+            if (foundUser.password === loginPW && foundUser.name === loginName) { 
+                dispatch(login(foundUser))
+                navigate('/')
+            }
         } else {
             setFailedattempt('block')
         }

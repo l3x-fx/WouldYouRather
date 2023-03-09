@@ -17,16 +17,10 @@ const initialState = {
             state.authUser = '';
             state.isLoggedIn = false;
         }, 
-        saveAnswerToAuth: (state, action) => {
-            Object.assign(state.authUser.answers, action.payload);
-        },
-        saveNewPollToAuth: (state, action) => {
-            state.authUser.questions.push(action.payload.id);
-        }
     }
   })
 
-  export const {login, logout, saveAnswerToAuth, saveNewPollToAuth} = authSlice.actions; 
+  export const {login, logout} = authSlice.actions; 
 
   export const selectAuth = (state) => state.auth.authUser; 
   export const selectLoggedIn = (state) => state.auth.isLoggedIn;
