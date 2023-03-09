@@ -37,7 +37,7 @@ export const Login = () => {
             const foundUser = Object.values(users).find(user => user.name === loginName);
             if (foundUser.password === loginPW && foundUser.name === loginName) { 
                 dispatch(login(foundUser))
-                navigate('/')
+                navigate(-2)
             }else {
                 setFailedattempt('block')
             }    

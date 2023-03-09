@@ -4,7 +4,7 @@
     margin-top: 60px;
     align-items: start; 
     justify-content: space-around;
-    grid-gap: 15px; 
+    grid-gap: 5px; 
     grid-template-columns: 1fr 4fr 4fr 1fr;
     grid-template-areas: 
     "x    title     title     y"
@@ -34,12 +34,15 @@
   
   
   .DoptA, .DoptB{
-    height: 7em;
+    /* height: 7em; */
     width:100%;
-    border: 1px solid black;
+    border: 1px solid rgb(180, 180, 180);
     border-radius: 5px;
   }
   
+  .det span {font-size: 1.1em; font-weight: 800;}
+
+  .btnoptA, .btnoptB {padding: 20px }
   .btnoptA, .btnoptB, .btnback{margin: 20px;}
   .quest-detail-title{margin:30px 0px 10px 0px;}
   

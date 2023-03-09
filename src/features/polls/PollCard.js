@@ -9,7 +9,7 @@ export const PollCard = ({poll, answered}) => {
     const navigate = useNavigate();
     
     const users = useSelector(selectUsers);
-    const authUser = useSelector(selectAuth); //  <<<<<<<<<<<<<<<<<<-------------------
+    const authUser = useSelector(selectAuth); 
 
     const handleClick = () => {
         navigate(`questions/${poll.id}`)
@@ -17,32 +17,35 @@ export const PollCard = ({poll, answered}) => {
     
     return(
         <div className="cardbox">
+            {/* HEADER */}
             <div className="cardinfo">
                 <div className="cardname">{users[poll.author].name}</div>
                 <div className="carddate">{new Date(poll.timestamp).toLocaleString('en-GB', { timeZone: 'UTC' })}</div>
             </div>
+            {/* QUESTION A*/}
             <div className="card-quest">
                 <div className="quest">Would you rather...  </div>
                 <div 
                     className="Q checkA" 
                     style={{
                         display: answered ? 'block':'none',
-                        color: answered && authUser.answers[poll.id] === 'optionOne' ? '#07aa07' : '#cc0606' //  <<<<<<<<<<<<<<<<<<-------------------
+                        color: answered && poll.optionOne.votes.includes(authUser.id)  ? '#07aa07' : '#cc0606' 
                         }}>
-                        {answered && authUser.answers[poll.id] === 'optionOne' ? '✓' : '✗'}  {/* //  <<<<<<<<<<<<<<<<<<------------------- */}
+                        {answered && poll.optionOne.votes.includes(authUser.id)  ? '✓' : '✗'}  
                 </div>                
-                <div className="Q optA">{poll.optionOne.text}</div>
-                
+                <div className="Q optA"><span>A:</span> {poll.optionOne.text}</div>
+             {/* QUESTION B*/}    
                 <div 
                     className="Q checkB" 
                     style={{
                         display: answered ? 'block':'none',
-                        color: answered && authUser.answers[poll.id] === 'optionTwo' ? '#07aa07' : '#cc0606' //  <<<<<<<<<<<<<<<<<<-------------------
+                        color: answered && poll.optionTwo.votes.includes(authUser.id)  ? '#07aa07' : '#cc0606' 
                         }}> 
-                        {answered && authUser.answers[poll.id] === 'optionTwo' ? '✓' : '✗'} {/* //  <<<<<<<<<<<<<<<<<<------------------- */}
+                        {answered && poll.optionTwo.votes.includes(authUser.id)  ? '✓' : '✗'} 
                 </div>
-                <div className="Q optB">{poll.optionTwo.text} </div> 
-                            </div>
+                <div className="Q optB"><span>B:</span> {poll.optionTwo.text} </div> 
+            </div>
+             {/* BUTTON*/}
             <button className="btn-card" onClick={handleClick}> {answered ? 'Show Details' : 'Vote Now'} </button>
         </div>
     )

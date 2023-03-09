@@ -21,6 +21,11 @@
 /* ------------------------------------------------- */
 /* GLOBAL STYLES */
 
+.navLink {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .title {
   margin: 50px auto;
   font-size: 2em;

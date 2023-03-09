@@ -39,14 +39,14 @@ export const PollDetails = () => {
         } else {return 0}
     };
 
-    const checkAnswered = (id) => {
-        if (Object.keys(authUser.answers).includes(id)) {
-            setAnswered(true)
-        } else if (Object.keys(polls).includes(id)) {
-            setAnswered(false)
-        } else {
+    const checkPoll = (id) => {
+        if (!Object.keys(polls).includes(id)) {
             setIsPoll(false)
-        }
+        } else if (poll.optionOne.votes.includes(authUser.id) || poll.optionTwo.votes.includes(authUser.id) ) {
+            setAnswered(true)
+        } else {
+            setAnswered(false)
+        } 
     }
 
     const handleVote = (e) => {
@@ -55,48 +55,58 @@ export const PollDetails = () => {
         navigate('/');
     }
 
+
     useEffect(()=> {
         if(!isLoggedIn) {
             navigate('/login')
         } else {
             dispatch(getAllPolls());  
-            checkAnswered(question_id);
+            checkPoll(question_id)
         }
-    },[navigate, dispatch])
+    },[])
 
     if (isPoll) {
     return(
         <div className="blah">
         <div className="quest-detail">
+            {/* HEADER */}
             <div className="quest-title">
                 <div className="ava qava"><img src={users[poll.author].avatarURL || dummy } alt='avatar dummy' /></div>
                 <div className="quest-name">{users[poll.author].name} asks:</div>
                 <h2 className="quest-detail-title">Would you rather ... </h2>
             </div>
-        {/* ------------------------------ */}
+
+            {/* QUESTIONS */}
             <div 
                 className="check DcheckA" 
                 style={{
                     display: answered ? 'block':'none', 
                     color: answered && poll.optionOne.votes.includes(authUser.id)  ? '#07aa07' : '#cc0606' 
                     }}
-            >{answered && poll.optionOne.votes.includes(authUser.id)  ? '✓' : '✗'}</div>  
-            <div className="det DoptA">... {poll.optionOne.text} </div> 
-            <div className="det DoptB">... {poll.optionTwo.text}</div> 
+            >
+                {answered && poll.optionOne.votes.includes(authUser.id)  ? '✓' : '✗'}
+            </div>  
+            <div className="det DoptA"> <span>A: </span> {poll.optionOne.text} </div> 
+            <div className="det DoptB"> <span>B: </span> {poll.optionTwo.text}</div> 
             <div 
                 className="check DcheckB" 
                 style={{
                     display: answered ? 'block':'none', 
                     color: answered && poll.optionTwo.votes.includes(authUser.id) ? '#07aa07' : '#cc0606' 
                 }}
-            >{answered && poll.optionTwo.votes.includes(authUser.id) ? '✓' : '✗'} </div>  
-        {/* ------------------------------ */}
+            >
+                {answered && poll.optionTwo.votes.includes(authUser.id) ? '✓' : '✗'} 
+            </div>  
+
+            {/* RESULTS */}
             <div className="statsA" style={{display: answered ? 'block':'none'}}>
                 <div className="resultbarA">
                     <div className="resultA" style={{width: percentageOne()+'%'}}>&nbsp;{percentageOne()}% </div>
                 </div>
                 <div className="votesA">{countOne} votes</div> 
             </div>
+
+            {/* BUTTON */}
            <div className="statsB" style={{display: answered ? 'block':'none'}}>
                 <div className="resultbarB" >
                     <div className="resultB" style={{width: percentageTwo()+'%'}}>&nbsp;{percentageTwo()}%</div>
@@ -110,14 +120,14 @@ export const PollDetails = () => {
                 style={{display: !answered ? 'block':'none'}}
                 name='optionOne'
                 onClick={handleVote}
-            >Vote For Option A</button>
+            >Vote A</button>
 
             <button 
                 className="btn btnoptB" 
                 style={{display: !answered ? 'block':'none'}}
                 name='optionTwo'
                 onClick={handleVote}
-            >Vote For Option B</button>
+            >Vote B</button>
 
             <button className="btn btnback" onClick={()=> navigate('/')} >Back</button>
         </div>

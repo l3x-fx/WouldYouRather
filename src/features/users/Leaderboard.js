@@ -27,6 +27,7 @@ export const Leaderboard = () => {
    
     useEffect(()=> {
         if(!isLoggedIn) {
+
             navigate('/login')
         } else {
             dispatch(getAllPolls());

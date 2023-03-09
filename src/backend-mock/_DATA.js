@@ -1,7 +1,7 @@
 let users = {
     sarahedo: {
       id: 'sarahedo',
-      password:'password123',
+      password:'123',
       name: 'Sarah Edo',
       avatarURL: 'https://placekitten.com/g/300/300',
       answers: {
