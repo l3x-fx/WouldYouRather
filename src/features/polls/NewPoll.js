@@ -48,6 +48,7 @@ export const NewPoll = () => {
             <form onSubmit={handleSubmit}>
                 <textarea
                     className="opt-input"
+                    data-testid="optA-input"
                     name="optA"
                     cols="30" 
                     rows="5"       
@@ -58,6 +59,7 @@ export const NewPoll = () => {
                 />
                 <textarea
                     className="opt-input"
+                    data-testid="optB-input"
                     name="optB"
                     cols="30" 
                     rows="5" 
@@ -65,7 +67,7 @@ export const NewPoll = () => {
                     placeholder='Option B'
                     onChange={handleOptTwoChange}
                 /> <br />
-                <input className="btn" type="submit" value="Submit New Poll" />
+                <input className="btn" data-testid="submitBtn" type="submit" value="Submit New Poll" disabled={newPoll.optionOneText === '' || newPoll.optionTwoText === ''} />
             </form>
         </div>
     )

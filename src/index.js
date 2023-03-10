@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Connect } from 'react-redux';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';

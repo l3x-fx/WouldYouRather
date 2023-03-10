@@ -1,0 +1,42 @@
+.toggle input {
+    display: none;
+}
+
+.roundbutton {    
+    width: 2.5rem;
+    background-color: var(--accent);
+    display: block;
+    transition: all 0.3s;
+    border-radius: 3.4rem;
+    cursor: pointer;
+    padding:5px;
+    margin:0px 10px;
+}
+
+.roundbutton:before {
+    content: "";
+    height: 0.8em;
+    width: 0.8em;
+    border-radius: 100%;
+    display: block;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    background-color: var(--pale-accent);
+    transition: all 0.3s;
+}
+.outer{ 
+    display: inline-flex; 
+    padding:10px 0px;
+
+}
+.view {
+    font-variant: small-caps;
+    font-weight: 500;
+}
+input:checked + .roundbutton {
+    background-color: var(--accent);
+}
+
+input:checked + .roundbutton:before  {
+    transform: translate(1.1rem, 0);
+}

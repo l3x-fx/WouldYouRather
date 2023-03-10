@@ -9,6 +9,7 @@ import{
 
  import { selectAuth, login } from '../auth/authSlice';
 
+
 export const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -49,11 +50,14 @@ export const Login = () => {
     return(
         <div>
             <h2 className="title" >LogIn</h2>
-            {authUser === '' ?
+
+            {!authUser.id 
+                ? 
             <form className="authform">
                 <label htmlFor="name">Name:</label>
                 <input
                     onChange={handleNameChange}
+                    data-testid="loginName"
                     value={loginName}
                     type="text"    
                     id="name"
@@ -63,17 +67,32 @@ export const Login = () => {
                 <label htmlFor="password">Password:</label><br />
                 <input
                     onChange={handlePWChange}
+                    data-testid="loginPW"
                     value={loginPW}
                     type="password"    
                     id="password"
                     name="password"
                     placeholder="**********"                 
                 /> 
-            <input onClick={handleLoginSubmit} className="btn" type="submit" value="LogIn" />
+            <input 
+                onClick={handleLoginSubmit} 
+                data-testid="submitBtn"
+                className="btn" 
+                disabled={loginName === '' || loginPW === ''}  
+                type="submit" 
+                value="LogIn" 
+            />
             </form>
-            : <div>You are already logged in!</div>
+            
+            : <div data-testid="loggendIn">You are already logged in!</div> 
+            
             }
-            <div className='failmessage' style={{display: failedattempt }}>Your password/username is incorrect!</div>
+            <div 
+                className='failmessage' 
+                data-textid="failmessage"
+                style={{display: failedattempt }}>
+                    Your password/username is incorrect!
+            </div>
 
         </div>
     )

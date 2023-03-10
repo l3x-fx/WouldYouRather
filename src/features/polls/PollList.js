@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import {getAllPolls, selectPolls } from './pollsSlice';
 import { selectAuth, selectLoggedIn } from '../auth/authSlice';
 
+import {getAnsweredPollsByUserID, getOpenPollsByUserID} from '../../utils/pollUtils'
 import { PollCard } from './PollCard'
 import './polls.css'
-import {getAnsweredPollsByUserID, getOpenPollsByUserID} from '../../utils/pollUtils'
+import './switch.css'
 
 export const PollList = () => {
     const navigate = useNavigate();
@@ -42,7 +43,16 @@ export const PollList = () => {
     return(
         <div >
             <h2 className="title">List of Polls</h2>
-            answered <input type="checkbox" id="answered" name="answered" onClick={toggleAnswered} /> unanswered
+
+            <div className="outer">
+                <div className="view">unanswered </div>                
+                    <label htmlFor="answerToggle" className="toggle"> 
+                        <input type="checkbox" id="answerToggle" onChange={toggleAnswered} />
+                        <span className="roundbutton"></span>
+                    </label>                
+                <div className="view">answered </div>
+            </div>   
+
             <div className="polllist">
                 {answered
                     ? displayPolls(answeredPolls)
