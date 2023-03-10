@@ -26,8 +26,8 @@ export const PollDetails = () => {
 
     const poll = polls[question_id]; 
 
-    const countOne = poll.optionOne.votes.length;
-    const countTwo = poll.optionTwo.votes.length;
+    const countOne = poll !== undefined ? poll.optionOne.votes.length : 0;
+    const countTwo = poll !== undefined ? poll.optionTwo.votes.length : 0;
 
     const percentageOne = () => {
         if (countOne+countTwo !== 0){ 
@@ -45,6 +45,7 @@ export const PollDetails = () => {
             setIsPoll(false)
         } else if (poll.optionOne.votes.includes(authUser.id) || poll.optionTwo.votes.includes(authUser.id) ) {
             setAnswered(true)
+            setIsPoll(true)
         } else {
             setAnswered(false)
         } 
@@ -58,7 +59,7 @@ export const PollDetails = () => {
     }
 
     useEffect(()=> {
-        if(!isLoggedIn) {
+        if(!isLoggedIn && isPoll ) {
             navigate('/login')
         } else {
             dispatch(getAllPolls());  
@@ -66,7 +67,7 @@ export const PollDetails = () => {
         }
     },[])
 
-    if (isPoll && pollsStatus==='idle') {
+    if (poll !== undefined && pollsStatus==='idle') {
         return(
             <div className="blah">
             <div className="quest-detail">

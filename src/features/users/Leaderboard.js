@@ -42,12 +42,12 @@ export const Leaderboard = () => {
                 <div className="LBtitle">Answered</div>
                 <div className="LBtitle">Created</div>
                 {board.map(user => (
-                    <>
+                    <div className="inline-frame" key={user.name}>
                         <div className="ava"><img src={user.ava || dummy} alt='avatar'/></div>
                         <div className="username">{user.name}</div>
                         <div>{user.answers}</div>
                         <div>{user.polls}</div>
-                    </>
+                    </div>
                 )
                 )}
             </div>

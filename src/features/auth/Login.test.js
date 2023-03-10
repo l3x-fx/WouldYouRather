@@ -2,6 +2,17 @@ import * as React from 'react';
 import {Login} from './Login'
 import { render, fireEvent } from '@testing-library/react';
 
+const mockUsNavigate = jest.fn();
+const mockUsDispatch = jest.fn();
+const mockUseSelector = jest.fn();
+
+jest.mock('react-router-dom', () => ({   
+    useNavigate: () => mockUsNavigate,
+  }));
+  jest.mock('react-redux', () => ({
+      useDispatch: ()=> mockUsDispatch, 
+      useSelector: ()=> mockUseSelector
+  }))
 describe('Login', () => {
     it('Submit button not disabled if name and PW are provided', ()=> {
 

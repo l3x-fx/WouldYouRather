@@ -15,11 +15,13 @@ import { Login } from './features/auth/Login';
 import { Leaderboard } from './features/users/Leaderboard';
 import { PollDetails } from './features/polls/PollDetails';
 import { Error } from './app/Error';
+import { GeneralError } from './app/GeneralError';
 
 const router = createBrowserRouter([
   {
     path:"/",
     element: <App />, 
+    errorElement: <GeneralError />,
     children:[
       {
         index: true,
@@ -43,8 +45,6 @@ const router = createBrowserRouter([
         element: <PollDetails />,
         errorElement: <Error />
       }
-      
-
     ]
   }
 ])

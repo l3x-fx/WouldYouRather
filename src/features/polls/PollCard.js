@@ -46,7 +46,7 @@ export const PollCard = ({poll, answered}) => {
                 <div className="Q optB"><span>B:</span> {poll.optionTwo.text} </div> 
             </div>
             {/* BUTTON*/}
-            <button className="btn-card" onClick={handleClick}> {answered ? 'Show Details' : 'Vote Now'} </button>
+            <button className="btn btn-card" onClick={handleClick}> {answered ? 'Show Details' : 'Vote Now'} </button>
         </div>
     )
 }

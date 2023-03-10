@@ -53,8 +53,12 @@
   padding: 5px 20px;
   border-radius: 8px;
 }
-.btn:disabled{
+.btn:disabled {
   background-color: var(--darkgrey);
+}
+
+.btn:hover {
+  cursor: pointer;
 }
 
 .failmessage {
@@ -124,13 +128,23 @@
 .leaderbaord {
   display:inline-grid;
   margin-top: 60px;
-  align-items: center;  
+  align-items: center; 
 
   grid-gap: 15px; 
-  grid-template-columns: 80px 2fr 1fr 1fr;
+  grid-template-columns: 80px 1fr 1fr 1fr;
   width:60vw;
 }
-.username {text-align: left;}
+.inline-frame {
+  grid-column: span 4;
+  display: inline-grid;
+  grid-template-columns: 80px 1fr 1fr 1fr;
+  align-items: center;  
+  grid-gap: 15px; 
+}
+.username {
+  text-align: left;
+}
+
 .LBtitle{
   font-size: 1.2em;
   font-weight: 600;
