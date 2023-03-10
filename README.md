@@ -27,6 +27,7 @@ To run this app you need to
 
 ## Login
 To login, following preset users are available: 
+
 ```Login name: Sarah Edo```
 ```Password: password123```
 
