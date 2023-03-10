@@ -25,7 +25,7 @@ To run this app you need to
 - run ```npm install```
 - run ```npm start```
 
-### Login
+## Login
 To login, following preset users are available: 
     Login name: Sarah Edo
     Password: password123
@@ -34,7 +34,7 @@ To login, following preset users are available:
     Password: abc321
     
     Login name: Mike Tsamis
-    Password:xyz123
+    Password: xyz123
       
     Login name: Zenobia Oshikanlu
     password: pass246
