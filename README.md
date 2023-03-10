@@ -27,17 +27,17 @@ To run this app you need to
 
 ## Login
 To login, following preset users are available: 
-    ```Login name: Sarah Edo```
-    ```Password: password123```
-   
-    ```Login name: Tyler McGinnis```
-    ```Password: abc321```
-    
-    ```Login name: Mike Tsamis```
-    ```Password: xyz123```
-      
-    ```Login name: Zenobia Oshikanlu```
-    ```password: pass246```
+```Login name: Sarah Edo```
+```Password: password123```
+
+```Login name: Tyler McGinnis```
+```Password: abc321```
+
+```Login name: Mike Tsamis```
+```Password: xyz123```
+
+```Login name: Zenobia Oshikanlu```
+```password: pass246```
 
 
 ## Credits
