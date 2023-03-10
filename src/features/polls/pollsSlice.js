@@ -57,14 +57,12 @@ const initialState = {
       })
       .addCase(saveNewPoll.fulfilled, (state) => {
         state.satue = 'idle';
-      })
-      
+      })      
     }
   });
   
-  // export const { } = pollsSlice.actions;
-
   export const selectPolls = (state) => state.polls.value;
+  export const selectPollsStatus = (state) => state.polls.status;
   
   export default pollsSlice.reducer;
   

@@ -12,7 +12,6 @@ import App from './App';
 import { PollList } from './features/polls/PollList';
 import { NewPoll } from './features/polls/NewPoll';
 import { Login } from './features/auth/Login';
-import { Signup } from './features/auth/Signup';
 import { Leaderboard } from './features/users/Leaderboard';
 import { PollDetails } from './features/polls/PollDetails';
 import { Error } from './app/Error';
@@ -29,11 +28,7 @@ const router = createBrowserRouter([
       {
         path:"/login",
         element:<Login /> 
-      },
-      {
-        path:"/signup", 
-        element: <Signup />
-      },      
+      },    
       {
         path:"/add",
         element:<NewPoll />, 

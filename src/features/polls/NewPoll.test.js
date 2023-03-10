@@ -16,11 +16,10 @@ jest.mock('react-router-dom', () => ({
   }))
 
 describe('NewPoll renders correctly', () => {
-it('will match snapshot', ()=> {
-    const component = render( <NewPoll /> )
-    expect(component).toMatchSnapshot()
-}
-)
+    it('will match snapshot', ()=> {
+        const component = render( <NewPoll /> )
+        expect(component).toMatchSnapshot()
+    })
 });
 
 describe('test if button disabled', () => {
@@ -43,8 +42,6 @@ describe('test if button disabled', () => {
 
         fireEvent.change(optA, {target: {value:'text1'}});
 
-        expect(submitBtn).toBeDisabled();
-
-   
+        expect(submitBtn).toBeDisabled();   
     })
 })

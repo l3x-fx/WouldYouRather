@@ -5,11 +5,10 @@ import { useState, useEffect } from 'react';
 import { selectAuth, selectLoggedIn} from '../auth/authSlice';
 import { getAllPolls, saveNewPoll} from '../polls/pollsSlice'
 
-
-
 export const NewPoll = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
     const authUser = useSelector(selectAuth); 
     const isLoggedIn = useSelector(selectLoggedIn);  
 
@@ -26,10 +25,10 @@ export const NewPoll = () => {
             setNewPoll({...newPoll, optionTwoText:e.target.value})
         }
     }
+
     const handleSubmit = (e) => {
         e.preventDefault(); 
-        dispatch(saveNewPoll(newPoll))   
-    
+        dispatch(saveNewPoll(newPoll))       
         navigate('/')
     }
 
@@ -39,7 +38,7 @@ export const NewPoll = () => {
         } else {
             dispatch(getAllPolls()); 
         }
-    },[navigate, dispatch])
+    },[])
 
     return(
         <div>
@@ -66,7 +65,8 @@ export const NewPoll = () => {
                     maxLength="100"
                     placeholder='Option B'
                     onChange={handleOptTwoChange}
-                /> <br />
+                /> 
+                <br />
                 <input className="btn" data-testid="submitBtn" type="submit" value="Submit New Poll" disabled={newPoll.optionOneText === '' || newPoll.optionTwoText === ''} />
             </form>
         </div>

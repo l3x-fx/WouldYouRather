@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import {getAllPolls, selectPolls } from './pollsSlice';
+import {getAllPolls, selectPolls, selectPollsStatus } from './pollsSlice';
 import { selectAuth, selectLoggedIn } from '../auth/authSlice';
 
 import {getAnsweredPollsByUserID, getOpenPollsByUserID} from '../../utils/pollUtils'
@@ -15,6 +15,7 @@ export const PollList = () => {
     const dispatch = useDispatch();
 
     const polls = useSelector(selectPolls);
+    const pollsStatus = useSelector(selectPollsStatus)
     const authUser = useSelector(selectAuth);
     const isLoggedIn = useSelector(selectLoggedIn);
 
@@ -40,7 +41,7 @@ export const PollList = () => {
         }
     },[isLoggedIn, navigate, dispatch])
 
-    return(
+    if (pollsStatus==='idle') {return(
         <div >
             <h2 className="title">List of Polls</h2>
 
@@ -60,5 +61,5 @@ export const PollList = () => {
                 }
             </div>
         </div>
-    )
+    )} else {return <h2>Loading ... </h2>}
 }

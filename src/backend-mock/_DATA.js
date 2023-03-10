@@ -1,7 +1,7 @@
 let users = {
     sarahedo: {
       id: 'sarahedo',
-      password:'123',
+      password:'password123',
       name: 'Sarah Edo',
       avatarURL: 'https://placekitten.com/g/300/300',
       answers: {
@@ -27,7 +27,7 @@ let users = {
       id: 'mtsamis',
       password:'xyz123',
       name: 'Mike Tsamis',
-      avatarURL: 'https://placekitten.com/g/400/400',
+      avatarURL: 'https://placekitten.com/g/333/333',
       answers: {
         "xj352vofupe1dqz9emx13r": 'optionOne',
         "vthrdm985a262al8qx3do": 'optionTwo',
@@ -39,7 +39,7 @@ let users = {
       id: 'zoshikanlu',
       password:'pass246',
       name: 'Zenobia Oshikanlu',
-      avatarURL: 'https://placekitten.com/g/250/250',
+      avatarURL: 'https://placekitten.com/g/222/222',
       answers: {
         "xj352vofupe1dqz9emx13r": 'optionOne',
       },

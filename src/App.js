@@ -5,15 +5,12 @@ import './App.css';
 import { Header } from './app/Header';
 import { Navbar } from './app/Navbar';
 
-
-
 function App() {
   return (
     <div className="App">
       <Header />
       <Navbar />
-      <Outlet />
-    
+      <Outlet />    
     </div>
   );
 }

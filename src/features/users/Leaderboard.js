@@ -27,23 +27,20 @@ export const Leaderboard = () => {
    
     useEffect(()=> {
         if(!isLoggedIn) {
-
             navigate('/login')
         } else {
             dispatch(getAllPolls());
             dispatch(getAllUsers())
         }
-    },[isLoggedIn, navigate, dispatch])
+    },[])
     return(
         <div>
             <h2 className="title">Leaderboard</h2>
-
             <div className="leaderbaord">
                 <div></div>
                 <div className="username LBtitle">Name</div>
                 <div className="LBtitle">Answered</div>
                 <div className="LBtitle">Created</div>
-
                 {board.map(user => (
                     <>
                         <div className="ava"><img src={user.ava || dummy} alt='avatar'/></div>

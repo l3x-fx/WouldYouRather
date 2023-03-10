@@ -34,7 +34,7 @@ export const PollCard = ({poll, answered}) => {
                         {answered && poll.optionOne.votes.includes(authUser.id)  ? '✓' : '✗'}  
                 </div>                
                 <div className="Q optA"><span>A:</span> {poll.optionOne.text}</div>
-             {/* QUESTION B*/}    
+            {/* QUESTION B*/}    
                 <div 
                     className="Q checkB" 
                     style={{
@@ -45,7 +45,7 @@ export const PollCard = ({poll, answered}) => {
                 </div>
                 <div className="Q optB"><span>B:</span> {poll.optionTwo.text} </div> 
             </div>
-             {/* BUTTON*/}
+            {/* BUTTON*/}
             <button className="btn-card" onClick={handleClick}> {answered ? 'Show Details' : 'Vote Now'} </button>
         </div>
     )

@@ -16,37 +16,70 @@
     width: 60vw;
   }
   
-  .quest-title{grid-area: title; }
+  .quest-title {
+    grid-area: title; 
+  }
   
-  .DcheckA{grid-area: checkA; text-align:right}
-  .DoptA{grid-area: optA; padding: 3px;}
-  .DoptB{grid-area: optB; padding: 3px;}
-  .DcheckB{grid-area: checkB; text-align: left;}
+  .DcheckA {
+    grid-area: checkA; text-align:right
+  }
+  .DoptA {
+    grid-area: optA; padding: 3px;
+  }
+  .DoptB {
+    grid-area: optB; padding: 3px;
+  }
+  .DcheckB {
+    grid-area: checkB; text-align: left;
+  }
   
-  .statsA{grid-area: statsA;}
-  .statsB{grid-area: statsB;}
+  .statsA {
+    grid-area: statsA;
+  }
+  .statsB {
+    grid-area: statsB;
+  }
   
-  .btnoptA{grid-area: btnoptA;}
-  .btnoptB{grid-area: btnoptB;}
-  .btnback{grid-area: back;}
+  .btnoptA {
+    grid-area: btnoptA;
+  }
+  .btnoptB {
+    grid-area: btnoptB;
+  }
+  .btnback {
+    grid-area: back;
+  }
   
-  .qava{display:inline-block;}
-  
+  .qava {
+    display:inline-block;
+  } 
   
   .DoptA, .DoptB{
-    /* height: 7em; */
     width:100%;
     border: 1px solid rgb(180, 180, 180);
     border-radius: 5px;
   }
   
-  .det span {font-size: 1.1em; font-weight: 800;}
+  .det span {
+    font-size: 1.1em; 
+    font-weight: 800;
+  }
 
-  .btnoptA, .btnoptB {padding: 20px }
-  .btnoptA, .btnoptB, .btnback{margin: 20px;}
-  .quest-detail-title{margin:30px 0px 10px 0px;}
+  .btnoptA, .btnoptB {
+    padding: 20px 
+  }
   
-  .check {font-size: 3em;}
+  .btnoptA, .btnoptB, .btnback{
+    margin: 20px;
+  }
+  
+  .quest-detail-title {
+    margin:30px 0px 10px 0px;
+  }
+  
+  .check {
+    font-size: 3em;
+  }
   
   .resultbarA, .resultbarB {
     display: grid;
@@ -55,8 +88,15 @@
     border-radius: 5px;
   }
   
-  .resultbarA{justify-items: left;    font-size:0.8em;}
-  .resultbarB{justify-items: left;    font-size:0.8em;}
+  .resultbarA {
+    justify-items: left;    
+    font-size:0.8em;
+  }
+  
+  .resultbarB {
+    justify-items: left;    
+    font-size:0.8em;
+  }
   
   .resultA {
     background-color: var(--pale-accent);
