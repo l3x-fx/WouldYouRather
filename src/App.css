@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&family=Amatic+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Saira&display=swap");
 
 :root {
   --pale-accent: #bee0ec;
@@ -7,7 +7,7 @@
   --darkgrey: #4f4f4f;
   --lightgrey: #dbe1f3;
   --white: #fff;
-  --accent-font: "Amatic SC", cursive;
+  --accent-font: "Saira", cursive;
   --basic-font: "Lato", sans-serif;
 }
 /* }
@@ -91,6 +91,8 @@ body {
   background-repeat: no-repeat;
   background-color: var(--pale-accent);
   font-size: 55px;
+  color: white;
+  text-shadow: 3px 3px 5px black;
 }
 
 /* ------------------------------------------------- */
