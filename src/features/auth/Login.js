@@ -84,7 +84,7 @@ export const Login = () => {
       <div className="failmessage" data-textid="failmessage" style={{ display: failedattempt }}>
         Your password/username is incorrect!
       </div>
-      <div className="info">
+      <div className="info" style={{ display: !authUser.id }}>
         Testaccount: <br />
         name: Sarah Edo <br />
         password: password123

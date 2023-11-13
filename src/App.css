@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Amatic+SC&display=swap");
 
 :root {
-  --pale-accent: rgb(183, 199, 243);
-  --accent: rgb(55, 18, 104);
+  --pale-accent: #b7c7f3;
+  --accent: #371268;
   --grey: #bababa;
   --darkgrey: #4f4f4f;
-  --lightgrey: #d8d8d8;
+  --lightgrey: #dbe1f3;
   --white: #fff;
   --accent-font: "Amatic SC", cursive;
   --basic-font: "Lato", sans-serif;
@@ -23,11 +23,13 @@
 } */
 
 * {
-  padding: 0px;
   margin: 0px;
   box-sizing: border-box;
   text-align: center;
   font-family: var(--basic-font);
+}
+body {
+  background: var(--lightgrey);
 }
 /* ------------------------------------------------- */
 /* GLOBAL STYLES */
@@ -62,7 +64,7 @@
   background-color: var(--accent);
   color: var(--white);
   padding: 5px 20px;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 .btn:disabled {
   background-color: var(--darkgrey);

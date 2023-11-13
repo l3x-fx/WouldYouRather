@@ -1,83 +1,89 @@
-.polllist{
-    display: flex; 
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items:flex-start;
-  }
-  .cardbox {
-    display: flex;
-    flex-direction: column;
-    margin: 30px;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 30vw;
-    flex: 0 1 20em;
-  }
-  .cardinfo {
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: var(--grey);
-    border-bottom: 1px solid black;
-    margin: 0px;
-    font-size:0.9em;
-  }
-  
-  .cardname {
-    margin: 0px auto 0px 5px;
-    font-weight:600;
-  }
-  
-  .carddate {
-    margin: 0px 5px 0px auto;
-  }
-  
-  .card-quest {
-    display:grid;
-    grid-template-columns: 20px 1fr;
-    grid-template-areas: 
-     "x q "
-     "checkA optA "
-     "checkB optB ";
-     justify-items: start;
-     align-items: start;
-     padding:5px 25px 5px 5px;
-  }
-  
-  .quest {
-    grid-area:q; 
-    font-weight: 600;
-  }
-  .checkA {
-    grid-area: checkA; 
-    font-weight: 600;
-  }
-  .optA {
-    grid-area: optA;
-  }
-  .checkB {
-    grid-area:checkB; 
-    font-weight: 600;
-  }
-  .optB {
-    grid-area: optB; 
-  }
-  .Q {
-    text-align: left; 
-    margin:5px;
-  }
-  .Q span {
-    font-size: 1.1em; 
-    font-weight: 800;
-  }
-  
-  
-  .btn-card {
-    background-color: var(--accent);
-    color: var(--white);
-    border:0px;
-    padding: 5px 20px;
-    width: 100%;
-    margin: 10px 0px 0px 0px;
-  }
+.polllist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.cardbox {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 30vw;
+  flex: 0 1 20em;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+  background-color: var(--white);
+}
+.cardinfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: var(--grey);
+  border-bottom: 1px solid black;
+  margin: 0px;
+  font-size: 0.9em;
+  padding: 5px 0;
+}
+
+.cardname {
+  margin: 0px auto 0px 5px;
+  font-weight: 600;
+}
+
+.carddate {
+  margin: 0px 5px 0px auto;
+}
+
+.card-quest {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  grid-template-areas:
+    "x q "
+    "checkA optA "
+    "checkB optB ";
+  justify-items: start;
+  align-items: start;
+  padding: 5px 25px 5px 5px;
+}
+
+.quest {
+  grid-area: q;
+  font-weight: 600;
+}
+.checkA {
+  grid-area: checkA;
+  font-weight: 600;
+}
+.optA {
+  grid-area: optA;
+  height: 3em;
+}
+.checkB {
+  grid-area: checkB;
+  font-weight: 600;
+}
+.optB {
+  grid-area: optB;
+  height: 3em;
+}
+.Q {
+  text-align: left;
+  margin: 5px;
+}
+.Q span {
+  font-size: 1.1em;
+  font-weight: 800;
+}
+
+.btn-card {
+  background-color: var(--accent);
+  color: var(--white);
+  border: 0px;
+  padding: 7px 20px;
+  width: 100%;
+  margin: 10px 0px 0px 0px;
+  border-radius: 0px 0px 5px 5px;
+  font-size: 1em;
+}
