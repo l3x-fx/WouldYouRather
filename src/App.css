@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Amatic+SC&display=swap");
 
 :root {
-  --pale-accent: #b7c7f3;
-  --accent: #371268;
+  --pale-accent: #bee0ec;
+  --accent: #033d53;
   --grey: #bababa;
   --darkgrey: #4f4f4f;
   --lightgrey: #dbe1f3;
@@ -87,6 +87,8 @@ body {
   justify-content: center;
   height: 100px;
   font-family: var(--accent-font);
+  background-image: url("./assets/bg.jpg");
+  background-repeat: no-repeat;
   background-color: var(--pale-accent);
   font-size: 55px;
 }

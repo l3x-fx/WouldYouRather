@@ -77,17 +77,17 @@ export const Login = () => {
             type="submit"
             value="LogIn"
           />
+          <div className="info" style={{ display: !authUser.id }}>
+            Testaccount: <br />
+            name: Sarah Edo <br />
+            password: password123
+          </div>
         </form>
       ) : (
         <div data-testid="loggendIn">You are already logged in!</div>
       )}
       <div className="failmessage" data-textid="failmessage" style={{ display: failedattempt }}>
         Your password/username is incorrect!
-      </div>
-      <div className="info" style={{ display: !authUser.id }}>
-        Testaccount: <br />
-        name: Sarah Edo <br />
-        password: password123
       </div>
     </div>
   )
