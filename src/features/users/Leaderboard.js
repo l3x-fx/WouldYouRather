@@ -32,6 +32,7 @@ export const Leaderboard = () => {
       dispatch(getAllPolls())
       dispatch(getAllUsers())
     }
+    // eslint-disable-next-line
   }, [])
   return (
     <div>

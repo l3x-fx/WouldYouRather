@@ -17,6 +17,7 @@ export const Login = () => {
 
   useEffect(() => {
     dispatch(getAllUsers())
+    // eslint-disable-next-line
   }, [])
 
   const handleNameChange = (e) => {

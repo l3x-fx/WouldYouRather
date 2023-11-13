@@ -69,6 +69,7 @@ export const PollDetails = () => {
       dispatch(getAllPolls())
       checkPoll(question_id)
     }
+    // eslint-disable-next-line
   }, [])
 
   if (poll !== undefined && pollsStatus === "idle") {
