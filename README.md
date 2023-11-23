@@ -1,47 +1,31 @@
 # WOULD YOU RATHER - Employee Polls Project
-***React/Redux Project Challenge***
-___
+
+**_React/Redux Project Challenge_**
+
+---
+
 ## About This App
-**WOULD YOU RATHER** allows the user to manage and create polls. 
-The following functions are provided: 
+
+**WOULD YOU RATHER** allows the user to manage and create polls.
+The following functions are provided:
+
 - Login / Logout
-- Display an overview of answered and unanswered polls
-- Display the details of a single, yet unanunswered poll with the possibility to vote on one of two given options
-- Display the details of a single, already answered poll along with the choosen option
-- Display the an overview of an user ranking based on the number of given answers and created polls
+- Overview of answered and unanswered polls
+- Details of a single, unanswered poll with the option to vote
+- Details of a single, answered poll with the chosen option
+- User ranking based on answers given and polls created
 
-## Data
-The following technologies were used to create & test this app:
-- HTML
-- CSS
-- REACT
-- REACT ROUTER
-- REDUX / TOOLKIT
-- JEST
+## TechStack & more
 
-## Setup
-To run this app you need to 
-- Download or clone this repository
-- run ```npm install```
-- run ```npm start```
+- **HTML, CSS**:Solid foundation for a visually appealing and responsive UI.
+- **Reat, React Router** : Dynamic web app development with seamless navigation.
+- **Redux / Redux Toolkit**: State management for a smooth and predictable data flow.
+- **Jest**: Ensuring code reliability through comprehensive testing.
+- **Coffee and Cats**: The secret ingredients fueling productivity and adding a touch of fun. 😉
 
-## Login
-To login, following preset users are available: 
+Try it out on [Netlify](https://sensational-mandazi-44869f.netlify.app/)
 
-```Login name: Sarah Edo```
-```Password: password123```
+### Credits
 
-```Login name: Tyler McGinnis```
-```Password: abc321```
-
-```Login name: Mike Tsamis```
-```Password: xyz123```
-
-```Login name: Zenobia Oshikanlu```
-```password: pass246```
-
-
-## Credits
 Avatar Dummy picture by [200degrees @ pixabay.com](https://pixabay.com/de/vectors/benutzerbild-symbol-platzhalter-1606939/)
 Avatar pictures by [https://placekitten.com/] (https://placekitten.com/)
-
