@@ -1,10 +1,11 @@
 import React from "react"
-import { createRoot } from "react-dom"
+import { createRoot } from "react-dom/client"
 import { Provider } from "react-redux"
 import { store } from "./app/store"
 import reportWebVitals from "./reportWebVitals"
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createHashRouter, HashRouter } from "react-router-dom"
 
 import "./index.css"
 import App from "./App"
@@ -17,7 +18,7 @@ import { PollDetails } from "./features/polls/PollDetails"
 import { Error } from "./app/Error"
 import { GeneralError } from "./app/GeneralError"
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <App />,
@@ -28,19 +29,19 @@ const router = createBrowserRouter([
         element: <PollList />,
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login />,
       },
       {
-        path: "/add",
+        path: "add",
         element: <NewPoll />,
       },
       {
-        path: "/leaderboard",
+        path: "leaderboard",
         element: <Leaderboard />,
       },
       {
-        path: "/questions/:question_id",
+        path: "questions/:question_id",
         element: <PollDetails />,
         errorElement: <Error />,
       },
