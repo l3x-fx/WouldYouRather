@@ -3,7 +3,7 @@ let users = {
     id: "sarahedo",
     password: "password123",
     name: "Sarah Edo",
-    avatarURL: "https://placekitten.com/g/300/300",
+    avatarURL: "https://picsum.photos/id/40/300/300",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionTwo",
@@ -14,7 +14,7 @@ let users = {
     id: "tylermcginnis",
     password: "abc321",
     name: "Tyler McGinnis",
-    avatarURL: null,
+    avatarURL: "https://picsum.photos/id/237/300/300",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
@@ -25,7 +25,7 @@ let users = {
     id: "mtsamis",
     password: "xyz123",
     name: "Mike Tsamis",
-    avatarURL: "https://placekitten.com/g/333/333",
+    avatarURL: "https://picsum.photos/id/70/300/300",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
@@ -37,7 +37,7 @@ let users = {
     id: "zoshikanlu",
     password: "pass246",
     name: "Zenobia Oshikanlu",
-    avatarURL: "https://placekitten.com/g/222/222",
+    avatarURL: "https://picsum.photos/id/227/300/300",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
     },
@@ -132,13 +132,13 @@ function generateUID() {
 
 export function _getUsers() {
   return new Promise((resolve) => {
-    setTimeout(() => resolve({ ...users }), 1000)
+    setTimeout(() => resolve({ ...users }), 300)
   })
 }
 
 export function _getQuestions() {
   return new Promise((resolve) => {
-    setTimeout(() => resolve({ ...questions }), 1000)
+    setTimeout(() => resolve({ ...questions }), 300)
   })
 }
 
@@ -172,7 +172,7 @@ export function _saveQuestion(question) {
       }
 
       resolve(formattedQuestion)
-    }, 1000)
+    }, 300)
   })
 }
 
@@ -206,6 +206,6 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
       }
 
       resolve(true)
-    }, 500)
+    }, 300)
   })
 }

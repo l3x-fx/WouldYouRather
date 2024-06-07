@@ -58,8 +58,15 @@ export const PollDetails = () => {
   const handleVote = (e) => {
     e.preventDefault()
     dispatch(savePollAnswer({ authedUser: authUser.id, qid: question_id, answer: e.target.name }))
-    dispatch(getAllPolls())
-    setAnswered(true)
+      .then(() => {
+        return dispatch(getAllPolls())
+      })
+      .then(() => {
+        setAnswered(true)
+      })
+      .catch((error) => {
+        console.error("Error:", error)
+      })
   }
 
   useEffect(() => {
