@@ -18,6 +18,9 @@ import { PollDetails } from "./features/polls/PollDetails"
 import { Error } from "./app/Error"
 import { GeneralError } from "./app/GeneralError"
 
+// HashRouter was chosen over BrowserRouter as this works better on Netlify,
+// however it is usually not recommended
+
 const router = createHashRouter([
   {
     path: "/",
