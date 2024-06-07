@@ -44,6 +44,10 @@ const router = createBrowserRouter([
         element: <PollDetails />,
         errorElement: <Error />,
       },
+      {
+        path: "*",
+        element: <PollList />,
+      },
     ],
   },
 ])
